@@ -2,6 +2,7 @@
 import { UserData } from "../../../types";
 import { useEffect, useState } from "react";
 import User from "./User";
+import { Row } from "react-bootstrap";
 
 const AllUsers = () => {
   const [users, setUsers] = useState<UserData[]>([]);
@@ -30,9 +31,11 @@ const AllUsers = () => {
   return (
     <div>
       <h2>all users - {users.length}</h2>
-      {users.map((user) => (
-        <User key={user.id} user={user} />
-      ))}
+      <Row xs={1} md={2} className="g-4">
+        {users.map((user) => (
+          <User key={user.id} user={user} />
+        ))}
+      </Row>
     </div>
   );
 };

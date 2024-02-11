@@ -20,7 +20,9 @@ const router = createBrowserRouter([
         element: <AllUsers />,
       },
       {
-        path: "/singleuser",
+        path: "/user/:userId",
+        loader: ({ params }) =>
+          fetch(`https://dummyjson.com/users/${params.userId}`),
         element: <SingleUser />,
       },
     ],
