@@ -1,0 +1,60 @@
+.userInfo {
+  /* height: 300px; */
+  border: 1px solid rgb(213, 172, 240);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.cover {
+  height: 120px;
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+.userInfo img {
+  height: 120px;
+  width: 120px;
+  border: 6px solid white;
+  border-radius: 50%;
+  background-color: rgba(32, 41, 162, 1);
+  padding: 10px;
+  margin-top: -60px;
+  transition: 0.5s;
+}
+
+.userInfo h3 {
+  color: #1e1d1d;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.userInfo h6 {
+  color: rgb(157, 157, 255);
+  font-weight: 400;
+  color: black;
+}
+
+.horizontalLine {
+  width: 150px;
+  height: 2px;
+  background-color: rgb(157, 157, 255);
+  margin: 15px 0;
+}
+
+.company {
+  font-weight: 700;
+  color: rgba(32, 41, 162, 1);
+}
+
+.userInfo:hover {
+  border: 1px solid rgb(30, 30, 180);
+}
+.userInfo:hover img {
+  background-color: rgb(247, 247, 255);
+  border: 6px solid rgba(32, 41, 162, 1);
+}

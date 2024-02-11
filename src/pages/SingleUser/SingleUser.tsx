@@ -10,7 +10,8 @@ const SingleUser: React.FC = () => {
     <div>
       <Col key={id}>
         <Card>
-          <Card.Img variant="top" src={image} />
+          {/* <Card.Img variant="top" src={image} /> */}
+          <img src={image} alt="" style={{ height: "140px", width: "140px" }} />
           <Card.Body>
             <Card.Title>
               {firstName}

@@ -30,8 +30,7 @@ const AllUsers = () => {
   // console.log(users);
   return (
     <div>
-      <h2>all users - {users.length}</h2>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4">
         {users.map((user) => (
           <User key={user.id} user={user} />
         ))}
