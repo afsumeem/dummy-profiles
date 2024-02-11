@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { UserData } from "../../../types";
 import Col from "react-bootstrap/Col";
 import styles from "../../../styles/User.module.css";
@@ -34,10 +34,16 @@ const User: React.FC<UserProps> = ({ user }) => {
         </p>
 
         <p className={styles.company}>Company: {company.name}</p>
-        <div>
-          <FaTwitter />
-          <FaFacebook />
-          <FaLinkedin />
+        <div className=" d-flex gap-3 mb-3 mt-2">
+          <NavLink to="https://www.twitter.com" target="_blank">
+            <FaTwitter style={{ color: "rgb(95, 156, 226)" }} />
+          </NavLink>
+          <NavLink to="https://www.facebook.com" target="_blank">
+            <FaFacebook style={{ color: "rgb(31, 28, 228)" }} />{" "}
+          </NavLink>{" "}
+          <NavLink to="https://www.linkedin.com" target="_blank">
+            <FaLinkedin style={{ color: "rgb(5, 3, 133)" }} />{" "}
+          </NavLink>
         </div>
       </div>
     </Col>
