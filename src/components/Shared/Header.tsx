@@ -21,12 +21,6 @@ const Header = () => {
               <Link to="/" className="text-decoration-none fs-6 text-dark mx-2">
                 Home
               </Link>
-              <Link
-                to="/adduser"
-                className="text-decoration-none fs-6 mx-2 text-dark"
-              >
-                Add User
-              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

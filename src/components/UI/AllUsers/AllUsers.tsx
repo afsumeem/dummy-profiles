@@ -14,9 +14,8 @@ const AllUsers = () => {
   const [modalShow, setModalShow] = useState(false);
 
   // fetch user data
-
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchAllUsers = async () => {
       try {
         const response = await fetch("https://dummyjson.com/users");
         if (!response.ok) {
@@ -31,7 +30,7 @@ const AllUsers = () => {
       }
     };
 
-    fetchUsers();
+    fetchAllUsers();
   }, []);
 
   // search users

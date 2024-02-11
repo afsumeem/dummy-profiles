@@ -1,30 +1,27 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { AddUserProps, FormData } from "../../../types";
 
-//type
-interface AddUserProps {
-  onHide: () => void;
-  show: boolean;
-}
+//
 
 const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm<FormData>();
 
   // handle submit
-  //   const onSubmit = (data) => {
-  //     axios.post("http://localhost:5000/orders", data).then((res) => {
-  //       if (res.data.insertedId) {
-  //         alert("Form submitted successfully");
-  //         reset();
-  //       }
-  //     });
-  //   };
+  const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
+    const usersString = localStorage.getItem("users");
+    const users: FormData[] = usersString ? JSON.parse(usersString) : [];
+    const newUser = {
+      id: Date.now(),
+      ...data,
+    };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("User Successfully added. You Can check in Local Storage");
+    reset();
+    onHide();
+  };
 
   return (
     <Modal
@@ -34,11 +31,14 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header
+        closeButton
+        style={{ backgroundColor: "rgba(148, 187, 233, 1)" }}
+      >
         <h4 className="text-center">Add New User</h4>
       </Modal.Header>
       <Modal.Body>
-        <form className="">
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input
             placeholder="Image Link"
             className=" my-1 w-100 p-2"
@@ -91,15 +91,17 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
           </div>
 
           {/* submit button */}
-          <input
-            className="d-block mx-auto  my-2 btn btn-info w-100"
+          <Button
+            className="d-block mx-auto w-50 py-2 my-2 btn border-0 text-dark"
+            style={{ backgroundColor: "rgba(148, 187, 233, 1)" }}
             type="submit"
-            value="Add"
-          />
+          >
+            Add User
+          </Button>
         </form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="outline-danger" onClick={onHide}>
+      <Modal.Footer style={{ backgroundColor: "rgba(148, 187, 233, 1)" }}>
+        <Button variant="danger" onClick={onHide}>
           Cancel
         </Button>
       </Modal.Footer>
