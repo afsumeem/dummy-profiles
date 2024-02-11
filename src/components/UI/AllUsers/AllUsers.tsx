@@ -2,8 +2,10 @@
 import { UserData } from "../../../types";
 import { useEffect, useState } from "react";
 import User from "./User";
-import { Button, Form, InputGroup, Row, Spinner } from "react-bootstrap";
-import { CiSearch } from "react-icons/ci";
+import { Row, Spinner } from "react-bootstrap";
+
+import SelectInput from "../Inputs/SelectInput";
+import SearchInput from "../Inputs/SearchInput";
 
 const AllUsers = () => {
   const [users, setUsers] = useState<UserData[]>([]);
@@ -57,36 +59,15 @@ const AllUsers = () => {
       <hr />
 
       {/* search input  */}
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mx-4 gap-4 gap-md-1">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mx-4 gap-4 gap-md-1 mt-5">
         {/* sorting */}
-        <Form.Select
-          aria-label="Select sorting option"
-          value={sortBy}
-          onChange={(event) => setSortBy(event.target.value)}
-        >
-          <option>All</option>
-          <option value="name">Sort by name</option>
-          <option value="email">Sort by email</option>
-          <option value="company">Sort by Company name</option>
-        </Form.Select>
+        <SelectInput sortBy={sortBy} setSortBy={setSortBy} />
 
         {/*  search input*/}
-        <InputGroup className="mb-3 w-25">
-          <Form.Control
-            placeholder="Search users"
-            className="border-0 border-bottom rounded-0 "
-            aria-label="Search users"
-            aria-describedby="basic-addon2"
-            value={searchUsers}
-            onChange={(e) => setSearchUsers(e.target.value)}
-          />
-          <Button
-            className="bg-transparent text-dark border-0 border-bottom rounded-0"
-            id="button-addon2"
-          >
-            <CiSearch />
-          </Button>
-        </InputGroup>
+        <SearchInput
+          searchUsers={searchUsers}
+          setSearchUsers={setSearchUsers}
+        />
       </div>
 
       {/* user container */}
