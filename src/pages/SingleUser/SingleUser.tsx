@@ -18,7 +18,6 @@ const SingleUser: React.FC = () => {
         <Col md={1} lg={2}></Col>
         <Col sm={12} md={5} lg={4}>
           <div className={styles.cover}>
-            {" "}
             <img src={image} alt="" />
           </div>
 
