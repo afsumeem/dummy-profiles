@@ -2,11 +2,15 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AddUserProps, FormData } from "../../../types";
-
+import { toast } from "react-toastify";
 //
 
 const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
   const { register, handleSubmit, reset } = useForm<FormData>();
+
+  //
+  const notify = () =>
+    toast("User Successfully added. You Can check in Local Storage");
 
   // handle submit
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
@@ -18,7 +22,7 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
     };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    alert("User Successfully added. You Can check in Local Storage");
+    notify();
     reset();
     onHide();
   };
@@ -37,6 +41,8 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
       >
         <h4 className="text-center">Add New User</h4>
       </Modal.Header>
+
+      {/* add user input form */}
       <Modal.Body>
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input

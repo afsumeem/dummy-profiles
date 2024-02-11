@@ -6,6 +6,7 @@ import { Button, Row, Spinner } from "react-bootstrap";
 import SelectInput from "../Inputs/SelectInput";
 import SearchInput from "../Inputs/SearchInput";
 import AddUser from "../Modal/AddUserModal";
+import { ToastContainer } from "react-toastify";
 
 const AllUsers = () => {
   const [users, setUsers] = useState<UserData[]>([]);
@@ -68,9 +69,28 @@ const AllUsers = () => {
           searchUsers={searchUsers}
           setSearchUsers={setSearchUsers}
         />
+
+        {/* add user btn */}
         <Button className="w-25 mb-3" onClick={() => setModalShow(true)}>
           Add New User
         </Button>
+
+        {/* toast */}
+        <ToastContainer
+          position="top-center"
+          autoClose={10000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          style={{ width: "500px" }}
+        />
+
+        {/* add user modal component */}
         <AddUser show={modalShow} onHide={() => setModalShow(false)} />
       </div>
 
