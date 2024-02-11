@@ -30,7 +30,9 @@ const AllUsers = () => {
   // console.log(users);
   return (
     <div>
-      <Row xs={1} md={2} lg={3} xl={4} className="g-4">
+      <h1 className="mt-4 mb-2 text-center">ALL USERS</h1>
+      <hr />
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4 mt-3">
         {users.map((user) => (
           <User key={user.id} user={user} />
         ))}
