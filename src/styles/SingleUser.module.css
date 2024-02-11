@@ -1,0 +1,76 @@
+/* card container */
+.userInfo {
+  border-radius: 10px;
+  transition: 0.5s;
+  margin-top: 30px;
+}
+
+.cover {
+  height: 300px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+/* user avatar */
+
+.userInfo img {
+  height: 150px;
+  width: 150px;
+  border: 6px solid white;
+  border-radius: 50%;
+  background-color: rgba(148, 187, 233, 1);
+  padding: 10px;
+  /* margin-top: -80px; */
+  transition: 0.5s;
+}
+
+/* card title */
+
+.userInfo h3 {
+  color: #1e1d1d;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.userInfo h6 {
+  color: rgb(157, 157, 255);
+  font-weight: 400;
+  color: black;
+  text-align: center;
+}
+
+.horizontalLine {
+  width: 150px;
+  height: 2px;
+  display: block;
+  margin: auto;
+  background-color: rgba(238, 174, 202, 1);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.company {
+  font-weight: 700;
+  text-align: center;
+  /* color: rgba(32, 41, 162, 1); */
+}
+
+/* hover effect  */
+
+/* .userInfo:hover {
+  border: 1px solid rgb(103, 103, 194);
+} */
+.userInfo:hover img {
+  background-color: rgb(241, 224, 231);
+  border: 6px solid rgba(148, 187, 233, 1);
+}
