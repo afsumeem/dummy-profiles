@@ -27,6 +27,8 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
     onHide();
   };
 
+  //
+
   return (
     <Modal
       size="lg"
@@ -35,6 +37,7 @@ const AddUser: React.FC<AddUserProps> = ({ onHide, show }) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      {/* input form header */}
       <Modal.Header
         closeButton
         style={{ backgroundColor: "rgba(148, 187, 233, 1)" }}

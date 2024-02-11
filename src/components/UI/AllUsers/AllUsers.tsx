@@ -18,19 +18,17 @@ const AllUsers = () => {
   useEffect(() => {
     const fetchAllUsers = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/users");
-        if (!response.ok) {
-          throw new Error("Failed to fetch users");
+        const res = await fetch("https://dummyjson.com/users");
+        if (!res.ok) {
+          throw new Error("Failed");
         }
-        const responseData = await response.json();
+        const responseData = await res.json();
         const usersData: UserData[] = responseData.users;
         setUsers(usersData);
-        // console.log(usersData);
       } catch (error) {
-        // console.error("Error fetching users:", error);
+        // console.error(error);
       }
     };
-
     fetchAllUsers();
   }, []);
 
