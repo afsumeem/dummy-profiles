@@ -2,15 +2,16 @@
 import { UserData } from "../../../types";
 import { useEffect, useState } from "react";
 import User from "./User";
-import { Row, Spinner } from "react-bootstrap";
-
+import { Button, Row, Spinner } from "react-bootstrap";
 import SelectInput from "../Inputs/SelectInput";
 import SearchInput from "../Inputs/SearchInput";
+import AddUser from "../Modal/AddUserModal";
 
 const AllUsers = () => {
   const [users, setUsers] = useState<UserData[]>([]);
   const [searchUsers, setSearchUsers] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
+  const [modalShow, setModalShow] = useState(false);
 
   // fetch user data
 
@@ -59,7 +60,7 @@ const AllUsers = () => {
       <hr />
 
       {/* search input  */}
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mx-4 gap-4 gap-md-1 mt-5">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mx-4 gap-4 gap-md-3 mt-5">
         {/* sorting */}
         <SelectInput sortBy={sortBy} setSortBy={setSortBy} />
 
@@ -68,6 +69,10 @@ const AllUsers = () => {
           searchUsers={searchUsers}
           setSearchUsers={setSearchUsers}
         />
+        <Button className="w-25 mb-3" onClick={() => setModalShow(true)}>
+          Add New User
+        </Button>
+        <AddUser show={modalShow} onHide={() => setModalShow(false)} />
       </div>
 
       {/* user container */}
